@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ShroomPoint</string>
+    <string name="menu_champion">Champions</string>
+    <string name="menu_profile">Profile</string>
+    <string name="login">Log In</string>
+    <string name="logout">Log Out</string>
+    <string name="com_auth0_client_id">1JSBhWCzbicSLWzi6IktWPVpQjXlh2z9</string>
+    <string name="com_auth0_domain">dev-ndn0kecq.us.auth0.com</string>
+    <string name="loginSub">A LoL Companion</string>
+    <string name="a_mushroom">A mushroom</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
