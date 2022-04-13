@@ -3,11 +3,19 @@ package com.feelydev.shroompoint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.feelydev.shroompoint.Adapters.SimpleChampionAdapter;
+import com.feelydev.shroompoint.Models.ChampionSimple;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +23,9 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class ChampionFragment extends Fragment {
+
+    RecyclerView recyclerView;
+    List<ChampionSimple> championSimples;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +38,6 @@ public class ChampionFragment extends Fragment {
 
     public ChampionFragment() {
         // comes here currently
-
 
 
     }
@@ -65,4 +75,5 @@ public class ChampionFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_champion, container, false);
     }
+
 }
