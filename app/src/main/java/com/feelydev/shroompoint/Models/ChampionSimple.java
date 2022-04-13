@@ -34,11 +34,8 @@ public class ChampionSimple {
         return name;
     }
 
-    public String getAlias() {
-        return alias;
-    }
+    public String getAlias() { return alias; }
 
-    public String getThumbnailPath() {
-        return thumbnailPath;
-    }
+    public String getThumbnailPath() { return thumbnailPath; }
+
 }

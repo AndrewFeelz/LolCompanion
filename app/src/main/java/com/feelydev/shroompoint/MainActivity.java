@@ -1,7 +1,9 @@
 package com.feelydev.shroompoint;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,9 +39,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    String errors;
     RecyclerView recyclerView;
-    List<ChampionSimple> championSimples;
+    ArrayList<ChampionSimple> championSimples;
 
 
     @Override
@@ -47,36 +49,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        recyclerView = findViewById(R.id.recyclerView);
-        championSimples = new ArrayList<>();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        CommunityDragonAPI theCall = retrofit.create(CommunityDragonAPI.class);
-        Call<List<ChampionSimple>> allChampions = theCall.getAllChampions();
-        allChampions.enqueue(new Callback<List<ChampionSimple>>() {
-            @Override
-            public void onResponse(Call<List<ChampionSimple>> call, Response<List<ChampionSimple>> response) {
-                if (response.code() != 200){
-                    errors = "Error with Connection";
-                } else {
-                    championSimples = response.body();
-                    championSimples.remove(0);
-
-
-                    PutDataIntoRecyclerView(championSimples);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<ChampionSimple>> call, Throwable t) {
-                errors = "No clue what happened";
-            }
-        });
-
-
+//        recyclerView = findViewById(R.id.recyclerView);
+//        championSimples = new ArrayList<>();
+//
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//        CommunityDragonAPI theCall = retrofit.create(CommunityDragonAPI.class);
+//        Call<ArrayList<ChampionSimple>> allChampions = theCall.getAllChampions();
+//        allChampions.enqueue(new Callback<ArrayList<ChampionSimple>>() {
+//            @Override
+//            public void onResponse( Call<ArrayList<ChampionSimple>> call, Response<ArrayList<ChampionSimple>> response) {
+//                if (response.code() != 200){
+//                    errors = "Error with Connection";
+//                } else {
+//                    championSimples = response.body();
+//                    championSimples.remove(0);
+//
+//                    savedInstanceState.putParcelableArrayList("championList", championSimples);
+//                    PutDataIntoRecyclerView(championSimples);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ArrayList<ChampionSimple>> call, Throwable t) {
+//                errors = "No clue what happened";
+//            }
+//        });
         BottomNavigationItemView logoutBtn = findViewById(R.id.logout);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,15 +90,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navController);
     }
 
-    private void PutDataIntoRecyclerView(List<ChampionSimple> championSimples) {
-        SimpleChampionAdapter adapter = new SimpleChampionAdapter(this, championSimples);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-    }
-
-    public void setChampionListing(){
-        PutDataIntoRecyclerView(championSimples);
-    };
+//    private void PutDataIntoRecyclerView(List<ChampionSimple> championSimples) {
+//        SimpleChampionAdapter adapter = new SimpleChampionAdapter(this, championSimples);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setAdapter(adapter);
+//    }
 
 
     private void logout() {
