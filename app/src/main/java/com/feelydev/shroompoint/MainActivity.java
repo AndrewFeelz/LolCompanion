@@ -13,17 +13,56 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.feelydev.shroompoint.Interfaces.CommunityDragonAPI;
+import com.feelydev.shroompoint.Models.ChampionSimple;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.w3c.dom.Text;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView errors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        errors = findViewById(R.id.txtErrors);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CommunityDragonAPI theCall = retrofit.create(CommunityDragonAPI.class);
+        Call<List<ChampionSimple>> allChampions = theCall.getAllChampions();
+        allChampions.enqueue(new Callback<List<ChampionSimple>>() {
+            @Override
+            public void onResponse(Call<List<ChampionSimple>> call, Response<List<ChampionSimple>> response) {
+                if (response.code() != 200){
+                    errors.setText("Error with Connection");
+                } else {
+                    errors.setText("Oh Yeah");
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ChampionSimple>> call, Throwable t) {
+                errors.setText("No clue what happened");
+            }
+        });
+
 
         BottomNavigationItemView logoutBtn = findViewById(R.id.logout);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
