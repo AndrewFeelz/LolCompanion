@@ -13,7 +13,6 @@ public class ChampionListViewModel extends ViewModel {
     //Get From Repository
     private Repository repository;
 
-
     //Constructor
     public ChampionListViewModel() {
         repository = Repository.getInstance();
@@ -21,5 +20,10 @@ public class ChampionListViewModel extends ViewModel {
 
     public LiveData<List<ChampionSimple>> getChampionList(){
         return repository.getChampionList();
+    }
+
+    //Calling method in Repository
+    public void getChampionListAPI(){
+        repository.getChampionListAPI();
     }
 }

@@ -1,4 +1,4 @@
-package com.feelydev.shroompoint.response;
+package com.feelydev.shroompoint.responseNIU;
 
 import com.feelydev.shroompoint.models.ChampionSimple;
 import com.google.gson.annotations.Expose;

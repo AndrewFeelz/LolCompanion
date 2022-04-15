@@ -1,6 +1,7 @@
 package com.feelydev.shroompoint;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,11 @@ public class ChampionFragment extends Fragment {
 
         championListViewModel = new ViewModelProvider(this).get(ChampionListViewModel.class);
 
+        ObserveChanges();
+
+        //Testing method of onclick
+        getChampionListAPI();
+
     }
 
     //Observer changes in champion list data
@@ -43,6 +49,11 @@ public class ChampionFragment extends Fragment {
         championListViewModel.getChampionList().observe(this, new Observer<List<ChampionSimple>>() {
             @Override
             public void onChanged(List<ChampionSimple> championSimples) {
+                if(championSimples != null){
+                    for (ChampionSimple championSimple: championSimples){
+                        Log.v("Tag", "On Changed: " + championSimple.getName());
+                    }
+                }
 
             }
         });
@@ -51,10 +62,13 @@ public class ChampionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_champion, container, false);
 
 
-        return view;
+        return inflater.inflate(R.layout.fragment_champion, container, false);
     }
 
+    //Call from VIEWMODEL
+    private void getChampionListAPI(){
+        championListViewModel.getChampionListAPI();
+    }
 }

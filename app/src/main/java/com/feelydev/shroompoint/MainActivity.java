@@ -4,9 +4,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -19,7 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     RecyclerView recyclerView;
     List<ChampionSimple> championSimples;
@@ -30,18 +32,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
 
         BottomNavigationItemView logoutBtn = findViewById(R.id.logout);
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    logout();
-                }
-            });
-
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
+        logoutBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainerView);
         NavigationUI.setupWithNavController(bottomNav, navController);
+
+        setContentView(R.layout.fragment_champion);
     }
 
 

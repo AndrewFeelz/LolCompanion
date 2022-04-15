@@ -26,8 +26,16 @@ public class Repository {
         client = APIClient.getInstance();
     }
 
+    //ChampList Data from API CLIENT
     public LiveData<List<ChampionSimple>> getChampionList(){return client.getChampionList();}
+    public void getChampionListAPI() {
+       client.getChampionListAPI();
+    }
 
+
+    //Champ Verbose Data from APICLIENT
     public LiveData<ChampionVerbose> getChampion(){return client.getChampion();}
-
+    public void getChampionAPI(String champId){
+        client.getChampionAPI(champId);
+    }
 }

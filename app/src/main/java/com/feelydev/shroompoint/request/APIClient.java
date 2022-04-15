@@ -15,16 +15,22 @@ import java.util.List;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.Response;
 import retrofit2.Call;
+import retrofit2.Response;
 
 public class APIClient {
 
     //LiveData
-    private MutableLiveData<List<ChampionSimple>> championList = new MutableLiveData<>();
-    private MutableLiveData<ChampionVerbose> championVerbose = new MutableLiveData<>();
+    private MutableLiveData<ChampionVerbose> championVerbose;
+    private MutableLiveData<List<ChampionSimple>> championList;
 
     private static APIClient instance;
+
+    //Global Request
+    private RetrieveChampionRunnable retrieveChampionRunnable;
+    private RetrieveChampionListRunnable retrieveChampionListRunnable;
+
+
 
     public static APIClient getInstance() {
         if (instance == null){
@@ -34,22 +40,30 @@ public class APIClient {
     }
 
     private APIClient(){
-        championList = new MutableLiveData<>();
         championVerbose = new MutableLiveData<>();
+        championList = new MutableLiveData<>();
 
-    }
-
-    public LiveData<List<ChampionSimple>> getChampionList() {
-        return championList;
     }
 
     public LiveData<ChampionVerbose> getChampion() {
         return championVerbose;
     }
+    public LiveData<List<ChampionSimple>> getChampionList() {
+        return championList;
+    }
 
-    public void queueCommunityDragonAPI(){
 
-        final Future theHandler = APIExecutors.getInstance().getNetworkIO().submit();
+
+    //To be called to get a single champion
+    public void getChampionAPI(String champId){
+
+        if (retrieveChampionRunnable != null){
+            retrieveChampionRunnable = null;
+        }
+
+        retrieveChampionRunnable = new RetrieveChampionRunnable(champId);
+
+        final Future theHandler = APIExecutors.getInstance().getNetworkIO().submit(retrieveChampionRunnable);
 
         APIExecutors.getInstance().getNetworkIO().schedule(new Runnable() {
             @Override
@@ -61,31 +75,100 @@ public class APIClient {
     }
 
     //Retrieve data from RestAPI by runnable class
-    //2 types of query, technically 3
-    private class RetrieveRunnable implements Runnable{
+    private class RetrieveChampionRunnable implements Runnable{
 
         private String champId;
         boolean cancelRequest;
 
-        public RetrieveRunnable(String champId, boolean cancelRequest) {
+        public RetrieveChampionRunnable(String champId) {
             this.champId = champId;
-            this.cancelRequest = cancelRequest;
+            cancelRequest = false;
         }
 
         @Override
         public void run() {
 
             try {
-                Response response = getChampionList().execute();
+                Response<ChampionVerbose> response = getChampion(champId).execute();
                 if (cancelRequest){
                     return;
                 }
                 if (response.code() == 200){
-                    List<ChampionSimple> championSimpleList = new ArrayList<>()
+                    ChampionVerbose champion = response.body();
+                    championVerbose.postValue(champion);
+                }else{
+                    Log.v("Tag", "Error in Response: " + response.errorBody().toString());
+                    championVerbose.postValue(null);
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
+                championVerbose.postValue(null);
+            }
+
+        }
+
+        private Call<ChampionVerbose> getChampion(String champId){
+            return Service.getGameDB().getChampion(this.champId);
+        }
+
+        private void cancelRequest(){
+            Log.v("Tag", "Cancelling Search Request");
+            cancelRequest = true;
+        }
+    }
+
+
+
+    public void getChampionListAPI( ){
+
+        if (retrieveChampionRunnable != null){
+            retrieveChampionRunnable = null;
+        }
+
+        retrieveChampionListRunnable = new RetrieveChampionListRunnable();
+
+        final Future theHandler = APIExecutors.getInstance().getNetworkIO().submit(retrieveChampionRunnable);
+
+        APIExecutors.getInstance().getNetworkIO().schedule(new Runnable() {
+            @Override
+            public void run() {
+                //Cancellation of Request
+                theHandler.cancel(true);
+            }
+        }, 5000, TimeUnit.MILLISECONDS);
+    }
+
+
+
+
+    private class RetrieveChampionListRunnable implements Runnable{
+
+        boolean cancelRequest;
+
+        public RetrieveChampionListRunnable() {
+            cancelRequest = false;
+        }
+
+        @Override
+        public void run() {
+
+            try {
+                Response<List<ChampionSimple>> response = getChampionList().execute();
+                if (cancelRequest){
+                    return;
+                }
+                if (response.code() == 200){
+                    List<ChampionSimple> championSimpleList = response.body();
+                    championList.postValue(championSimpleList);
+                }else{
+                    Log.v("Tag", "Error in Response: " + response.errorBody().string());
+                    championList.postValue(null);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                championList.postValue(null);
             }
 
         }
