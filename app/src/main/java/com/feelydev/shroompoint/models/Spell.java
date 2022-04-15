@@ -1,4 +1,4 @@
-package com.feelydev.shroompoint.Models;
+package com.feelydev.shroompoint.models;
 
 import com.google.gson.annotations.SerializedName;
 
