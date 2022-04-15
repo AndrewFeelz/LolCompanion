@@ -18,10 +18,6 @@ public class ChampionListViewModel extends ViewModel {
         repository = Repository.getInstance();
     }
 
-    public LiveData<List<ChampionSimple>> getChampionList(){
-        return repository.getChampionList();
-    }
-
     //Calling method in Repository
     public void getChampionListAPI(){
         repository.getChampionListAPI();

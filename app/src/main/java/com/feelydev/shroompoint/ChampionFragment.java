@@ -35,29 +35,29 @@ public class ChampionFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        championListViewModel = new ViewModelProvider(this).get(ChampionListViewModel.class);
-
-        ObserveChanges();
-
-        //Testing method of onclick
-        getChampionListAPI();
+//        championListViewModel = new ViewModelProvider(this).get(ChampionListViewModel.class);
+//
+//        ObserveChanges();
+//
+//        //Testing method of onclick
+//        getChampionListAPI();
 
     }
 
-    //Observer changes in champion list data
-    private void ObserveChanges(){
-        championListViewModel.getChampionList().observe(this, new Observer<List<ChampionSimple>>() {
-            @Override
-            public void onChanged(List<ChampionSimple> championSimples) {
-                if(championSimples != null){
-                    for (ChampionSimple championSimple: championSimples){
-                        Log.v("Tag", "On Changed: " + championSimple.getName());
-                    }
-                }
-
-            }
-        });
-    }
+//    //Observer changes in champion list data
+//    private void ObserveChanges(){
+//        championListViewModel.getChampionList().observe(this, new Observer<List<ChampionSimple>>() {
+//            @Override
+//            public void onChanged(List<ChampionSimple> championSimples) {
+//                if(championSimples != null){
+//                    for (ChampionSimple championSimple: championSimples){
+//                        Log.v("Tag", "On Changed: " + championSimple.getName());
+//                    }
+//                }
+//
+//            }
+//        });
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

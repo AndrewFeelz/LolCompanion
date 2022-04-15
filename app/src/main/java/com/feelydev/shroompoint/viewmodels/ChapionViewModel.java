@@ -19,4 +19,8 @@ public class ChapionViewModel extends ViewModel {
     public LiveData<ChampionVerbose> getChampion(){
         return repository.getChampion();
     }
+
+    public void getChampionAPI(String champId){
+        repository.getChampionAPI(champId);
+    }
 }

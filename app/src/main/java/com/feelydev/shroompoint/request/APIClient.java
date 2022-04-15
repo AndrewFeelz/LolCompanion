@@ -122,13 +122,13 @@ public class APIClient {
 
     public void getChampionListAPI( ){
 
-        if (retrieveChampionRunnable != null){
-            retrieveChampionRunnable = null;
+        if (retrieveChampionListRunnable != null){
+            retrieveChampionListRunnable = null;
         }
 
         retrieveChampionListRunnable = new RetrieveChampionListRunnable();
 
-        final Future theHandler = APIExecutors.getInstance().getNetworkIO().submit(retrieveChampionRunnable);
+        final Future theHandler = APIExecutors.getInstance().getNetworkIO().submit(retrieveChampionListRunnable);
 
         APIExecutors.getInstance().getNetworkIO().schedule(new Runnable() {
             @Override
