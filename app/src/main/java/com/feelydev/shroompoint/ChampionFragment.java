@@ -6,8 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.feelydev.shroompoint.models.ChampionSimple;
+import com.feelydev.shroompoint.viewmodels.ChampionListViewModel;
+
+import java.util.List;
 
 public class ChampionFragment extends Fragment {
+
+    //ViewModel for ChampionList
+    private ChampionListViewModel championListViewModel;
 
 
 
@@ -24,6 +34,18 @@ public class ChampionFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        championListViewModel = new ViewModelProvider(this).get(ChampionListViewModel.class);
+
+    }
+
+    //Observer changes in champion list data
+    private void ObserveChanges(){
+        championListViewModel.getChampionList().observe(this, new Observer<List<ChampionSimple>>() {
+            @Override
+            public void onChanged(List<ChampionSimple> championSimples) {
+
+            }
+        });
     }
 
     @Override
