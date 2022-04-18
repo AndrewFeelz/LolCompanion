@@ -38,14 +38,16 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        recyclerView.findViewById(R.id.recyclerView);
+        View view = inflater.inflate(R.layout.fragment_champion, container, false);
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
 
         championListViewModel = new ViewModelProvider(this).get(ChampionListViewModel.class);
 
         ObserveChangesToList();
         getChampionListAPI();
         ConfigureRecyclerView();
-        return inflater.inflate(R.layout.fragment_champion, container, false);
+        return view;
     }
 
     //Call from VIEWMODELS
