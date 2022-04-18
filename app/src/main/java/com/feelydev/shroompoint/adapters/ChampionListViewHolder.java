@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.feelydev.shroompoint.R;
+import com.feelydev.shroompoint.models.ChampionSimple;
 
 public class ChampionListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //Widgets
@@ -16,23 +17,20 @@ public class ChampionListViewHolder extends RecyclerView.ViewHolder implements V
     ImageView championThumbnail;
 
     //ClickListener
-    OnChampionListener onChampionListener;
+    OnChampionListener ChampionListener;
 
     public ChampionListViewHolder(@NonNull View itemView, OnChampionListener onChampionListener) {
         super(itemView);
+        ChampionListener = onChampionListener;
 
         name = itemView.findViewById(R.id.txtChampionName);
         championThumbnail = itemView.findViewById(R.id.imgChampionThumbnail);
         //may
         itemView.setOnClickListener(this);
-
-
     }
 
     @Override
     public void onClick(View view) {
-
-        onChampionListener.onChampionClick(getAdapterPosition());
-
+        ChampionListener.onChampionClick(getAdapterPosition());
     }
 }

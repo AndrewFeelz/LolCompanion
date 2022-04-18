@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -79,6 +80,6 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
 
         @Override
     public void onChampionClick(int position) {
-
+            Toast.makeText(getContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
     }
 }
