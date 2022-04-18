@@ -10,4 +10,5 @@
     <string name="a_mushroom">A mushroom</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_champion_image">Champion Image</string>
 </resources>

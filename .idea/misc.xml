@@ -13,7 +13,10 @@
         <entry key="..\:/Spring 2022/MobileDeviceProgramming/Shroom_Point/app/src/main/res/layout/fragment_profile.xml" value="0.20277777777777778" />
         <entry key="..\:/Spring 2022/MobileDeviceProgramming/Shroom_Point/app/src/main/res/menu/menu.xml" value="0.55" />
         <entry key="..\:/Spring 2022/MobileDeviceProgramming/Shroom_Point/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4185" />
-        <entry key="app/src/main/res/layout/champion_list_item.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14722222222222223" />
+        <entry key="app/src/main/res/layout/champion_list_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_champion.xml" value="0.18229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.32971014492753625" />
       </map>
     </option>
