@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgChampionSplash">
+
+            <ImageView
+                android:id="@+id/imgChampionSplash"
+                android:layout_width="wrap_content"
+                android:layout_height="230dp"
+                android:background="#000000"
+                android:padding="2dp"
+                android:scaleType="fitXY"
+
+                app:srcCompat="@drawable/shyv" />
+
+            <TextView
+                android:id="@+id/txtChampName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgChampionSplash"
+                android:padding="5dp"
+                android:paddingStart="10dp"
+                android:text="Shyvanna"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtChampTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtChampName"
+                android:paddingStart="10dp"
+                android:text="the Half Dragon"
+                android:textAllCaps="true"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+
+            <RelativeLayout
+                android:id="@+id/bioArea"
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_below="@id/txtChampTitle"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/txtBioLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:text="Bio:"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/txtBioLabel"
+                    android:paddingHorizontal="20dp"
+                    android:text="Shyvana is a creature with the magic of a rune shard burning within her heart. Though she often appears humanoid, she can take her true form as a fearsome dragon, incinerating her foes with fiery breath. Having saved the life of the crown prince Jarvan IV, Shyvana now serves uneasily in his royal guard, struggling to find acceptance among the suspicious people of Demacia." />
+            </RelativeLayout>
+
+            <GridLayout
+                android:id="@+id/statArea"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/bioArea"
+                android:paddingStart="10dp">
+
+                <TextView
+                    android:id="@+id/txtStatLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:text="Stats:"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txtDifficultyLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:text="Difficulty: " />
+
+                <TextView
+                    android:id="@+id/txtDifficultyNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:text="#" />
+
+                <TextView
+                    android:id="@+id/txtDamageLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:text="Damage: " />
+
+                <TextView
+                    android:id="@+id/txtDamageNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_column="2"
+                    android:text="#" />
+
+                <TextView
+                    android:id="@+id/txtDurabilityLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_column="1"
+                    android:text="Durability: " />
+
+                <TextView
+                    android:id="@+id/txtDurabilityNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_column="2"
+                    android:text="#" />
+
+                <TextView
+                    android:layout_row="3"
+                    android:layout_column="3"
+                    android:text="@string/space"/>
+
+                <TextView
+                    android:id="@+id/txtCCLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="4"
+                    android:text="Crowd Control: " />
+
+                <TextView
+                    android:id="@+id/txtCCNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="5"
+                    android:text="#" />
+
+                <TextView
+                    android:id="@+id/txtMobilityLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_column="4"
+                    android:text="Mobility: " />
+
+                <TextView
+                    android:id="@+id/txtMobilityNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_column="5"
+                    android:text="#" />
+
+                <TextView
+                    android:id="@+id/txtUtilityLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_column="4"
+                    android:text="Utility: " />
+
+                <TextView
+                    android:id="@+id/txtUtilityNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="3"
+                    android:layout_column="5"
+                    android:text="#" />
+
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/txtAbilityLabel"
+                android:layout_width="match_parent"
+                android:layout_height="25sp"
+                android:layout_below="@id/statArea"
+                android:paddingStart="10dp"
+                android:text="Abilities (Passive, Q, W, E, R): "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/AbilityArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtAbilityLabel"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/PassiveArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20sp"
+                    android:paddingTop="5sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Passive"
+                        android:id="@+id/txtPassiveLabel"
+                        android:textStyle="bold|italic"/>
+                    <ImageView
+                        android:id="@+id/imgPassive"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/txtPassiveLabel"
+                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+
+                    <TextView
+                        android:id="@+id/txtPassiveName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtPassiveLabel"
+                        android:layout_toEndOf="@id/imgPassive"
+                        android:paddingLeft="5sp"
+                        android:text="Fury of the Dragonborn"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/txtPassiveDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtPassiveName"
+                        android:layout_toEndOf="@id/imgPassive"
+                        android:paddingStart="5sp"
+                        android:paddingLeft="5sp"
+                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/QArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20sp"
+                    android:paddingTop="5sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Q"
+                        android:id="@+id/txtQLabel"
+                        android:textStyle="bold|italic"/>
+                    <ImageView
+                        android:id="@+id/imgQ"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/txtQLabel"
+                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+
+                    <TextView
+                        android:id="@+id/txtQName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtQLabel"
+                        android:layout_toEndOf="@id/imgQ"
+                        android:paddingLeft="5sp"
+                        android:text="Fury of the Dragonborn"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/txtQDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtQName"
+                        android:layout_toEndOf="@id/imgQ"
+                        android:paddingStart="5sp"
+                        android:paddingLeft="5sp"
+                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/WArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20sp"
+                    android:paddingTop="5sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="W"
+                        android:id="@+id/txtWLabel"
+                        android:textStyle="bold|italic"/>
+                    <ImageView
+                        android:id="@+id/imgW"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/txtWLabel"
+                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+
+                    <TextView
+                        android:id="@+id/txtWName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtWLabel"
+                        android:layout_toEndOf="@id/imgW"
+                        android:paddingLeft="5sp"
+                        android:text="Fury of the Dragonborn"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/txtWDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtWName"
+                        android:layout_toEndOf="@id/imgW"
+                        android:paddingStart="5sp"
+                        android:paddingLeft="5sp"
+                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/EArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20sp"
+                    android:paddingTop="5sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="E"
+                        android:id="@+id/txtELabel"
+                        android:textStyle="bold|italic"/>
+                    <ImageView
+                        android:id="@+id/imgE"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/txtELabel"
+                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+
+                    <TextView
+                        android:id="@+id/txtEName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtELabel"
+                        android:layout_toEndOf="@id/imgE"
+                        android:paddingLeft="5sp"
+                        android:text="Fury of the Dragonborn"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/txtEDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtEName"
+                        android:layout_toEndOf="@id/imgE"
+                        android:paddingStart="5sp"
+                        android:paddingLeft="5sp"
+                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20sp"
+                    android:paddingTop="5sp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="R"
+                        android:id="@+id/txtRLabel"
+                        android:textStyle="bold|italic"/>
+                    <ImageView
+                        android:id="@+id/imgR"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/txtRLabel"
+                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+
+                    <TextView
+                        android:id="@+id/txtRName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtRLabel"
+                        android:layout_toEndOf="@id/imgR"
+                        android:paddingLeft="5sp"
+                        android:text="Fury of the Dragonborn"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/txtRDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtRName"
+                        android:layout_toEndOf="@id/imgR"
+                        android:paddingStart="5sp"
+                        android:paddingLeft="5sp"
+                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
