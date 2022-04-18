@@ -45,22 +45,15 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
         championListViewModel = new ViewModelProvider(this).get(ChampionListViewModel.class);
 
         ObserveChangesToList();
-        getChampionListAPI();
         ConfigureRecyclerView();
+        getChampionListAPI();
+
         return view;
     }
 
     //Call from VIEWMODELS
-    private List<ChampionSimple> getChampionListAPI() {
+    private void getChampionListAPI() {
         championListViewModel.getChampionListAPI();
-        List<ChampionSimple> championSimpleList = (List<ChampionSimple>) championListViewModel.getChampionList();
-        if (championSimpleList != null) {
-            for (ChampionSimple championSimple : championSimpleList) {
-                Log.v("Tag", "On Changed: " + championSimple.getName());
-            }
-            return championSimpleList;
-        }
-        return null;
     }
 
     private void ObserveChangesToList(){
@@ -68,9 +61,7 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
             @Override
             public void onChanged(List<ChampionSimple> championSimples) {
                 if (championSimples != null) {
-                    for (ChampionSimple championSimple : championSimples) {
-                        Log.v("Tag", "On Changed: " + championSimple.getName());
-                    }
+                    championListRecyclerView.setChampionSimpleList(championSimples);
                 }
 
             };
@@ -79,10 +70,11 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
 
     //RecyclerView
     private void ConfigureRecyclerView() {
+        championListRecyclerView = new ChampionListRecyclerView(this);
+        recyclerView.setAdapter(championListRecyclerView);
+
         int numberOfColumns = ScreenUtility.calculateNumberOfColumns(getContext(), 140);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), numberOfColumns));
-        championListRecyclerView.setChampionSimpleList(getChampionListAPI());
-        recyclerView.setAdapter(championListRecyclerView);
     }
 
         @Override

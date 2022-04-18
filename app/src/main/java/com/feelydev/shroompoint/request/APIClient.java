@@ -1,7 +1,9 @@
 package com.feelydev.shroompoint.request;
 
+import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -11,6 +13,7 @@ import com.feelydev.shroompoint.utils.APIExecutors;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -150,6 +153,7 @@ public class APIClient {
             cancelRequest = false;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
         public void run() {
 
@@ -160,6 +164,8 @@ public class APIClient {
                 }
                 if (response.code() == 200){
                     List<ChampionSimple> championSimpleList = response.body();
+                    championSimpleList.remove(0);
+                    championSimpleList.sort(Comparator.comparing(ChampionSimple::getName));
                     championList.postValue(championSimpleList);
                 }else{
                     Log.v("Tag", "Error in Response: " + response.errorBody().string());

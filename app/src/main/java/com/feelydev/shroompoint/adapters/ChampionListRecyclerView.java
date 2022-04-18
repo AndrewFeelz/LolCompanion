@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.feelydev.shroompoint.ChampionFragment;
 import com.feelydev.shroompoint.R;
 import com.feelydev.shroompoint.models.ChampionSimple;
+import com.feelydev.shroompoint.utils.Credentials;
 
 import java.util.List;
 
@@ -36,14 +37,16 @@ public class ChampionListRecyclerView extends RecyclerView.Adapter<RecyclerView.
 
         //Use Glide for image
         Glide.with(holder.itemView.getContext())
-                .load(championSimpleList.get(i))
+                .load(Credentials.BASE_URL + "champion-icons/" + championSimpleList.get(i).getId() + ".png")
                 .into((((ChampionListViewHolder)holder).championThumbnail));
         
     }
 
     @Override
     public int getItemCount() {
-        return championSimpleList.size();
+        if(championSimpleList != null){
+            return championSimpleList.size();
+        } else { return 0; }
     }
 
     public void setChampionSimpleList(List<ChampionSimple> championSimples){
