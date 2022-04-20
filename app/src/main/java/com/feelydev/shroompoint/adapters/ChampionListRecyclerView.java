@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.feelydev.shroompoint.ChampionFragment;
 import com.feelydev.shroompoint.R;
 import com.feelydev.shroompoint.models.ChampionSimple;
+import com.feelydev.shroompoint.models.ChampionVerbose;
 import com.feelydev.shroompoint.utils.Credentials;
 
 import java.util.List;
@@ -52,5 +53,16 @@ public class ChampionListRecyclerView extends RecyclerView.Adapter<RecyclerView.
     public void setChampionSimpleList(List<ChampionSimple> championSimples){
         this.championSimpleList = championSimples;
         notifyDataSetChanged();
+    }
+
+    //Get ID of Champ
+    public String getSelectedChampionId(int position){
+        if (championSimpleList != null){
+            if (championSimpleList.size() > 0){
+                ChampionSimple championSimple = championSimpleList.get(position);
+                return String.valueOf(championSimple.getId());
+            }
+        }
+        return null;
     }
 }
