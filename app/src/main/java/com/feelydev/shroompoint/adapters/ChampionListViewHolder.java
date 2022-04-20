@@ -1,6 +1,5 @@
 package com.feelydev.shroompoint.adapters;
 
-import android.view.TextureView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.feelydev.shroompoint.R;
-import com.feelydev.shroompoint.models.ChampionSimple;
 
 public class ChampionListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //Widgets
