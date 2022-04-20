@@ -35,6 +35,7 @@
                 android:layout_below="@id/imgChampionSplash"
                 android:padding="5dp"
                 android:paddingStart="10dp"
+                android:paddingRight="10dp"
                 android:text="Shyvanna"
                 android:textSize="40sp"
                 android:textStyle="bold" />
@@ -45,10 +46,19 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtChampName"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="the Half Dragon"
+                android:layout_marginBottom="10dp"
                 android:textAllCaps="true"
                 android:textSize="14sp"
                 android:textStyle="italic" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dividerInsetStart="16dp"
+                app:dividerInsetEnd="16dp"
+                android:layout_below="@id/txtChampTitle"/>
 
             <RelativeLayout
                 android:id="@+id/bioArea"
@@ -62,24 +72,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
                     android:text="Bio:"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtBio"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@id/txtBioLabel"
                     android:paddingHorizontal="20dp"
                     android:text="Shyvana is a creature with the magic of a rune shard burning within her heart. Though she often appears humanoid, she can take her true form as a fearsome dragon, incinerating her foes with fiery breath. Having saved the life of the crown prince Jarvan IV, Shyvana now serves uneasily in his royal guard, struggling to find acceptance among the suspicious people of Demacia." />
+
             </RelativeLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dividerInsetStart="16dp"
+                app:dividerInsetEnd="16dp"
+                android:layout_below="@id/bioArea"/>
 
             <GridLayout
                 android:id="@+id/statArea"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_below="@id/bioArea"
+                android:layout_marginTop="10dp"
                 android:paddingStart="10dp">
+
 
                 <TextView
                     android:id="@+id/txtStatLabel"
@@ -195,12 +217,21 @@
 
             </GridLayout>
 
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dividerInsetStart="16dp"
+                app:dividerInsetEnd="16dp"
+                android:layout_below="@id/statArea"/>
+
             <TextView
                 android:id="@+id/txtAbilityLabel"
                 android:layout_width="match_parent"
                 android:layout_height="25sp"
                 android:layout_below="@id/statArea"
-                android:paddingStart="10dp"
+                android:paddingStart="10sp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="10dp"
                 android:text="Abilities (Passive, Q, W, E, R): "
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -239,7 +270,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtPassiveLabel"
                         android:layout_toEndOf="@id/imgPassive"
-                        android:paddingLeft="5sp"
+                        android:paddingStart="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
@@ -250,7 +282,7 @@
                         android:layout_below="@id/txtPassiveName"
                         android:layout_toEndOf="@id/imgPassive"
                         android:paddingStart="5sp"
-                        android:paddingLeft="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
@@ -283,7 +315,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtQLabel"
                         android:layout_toEndOf="@id/imgQ"
-                        android:paddingLeft="5sp"
+                        android:paddingStart="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
@@ -294,7 +327,7 @@
                         android:layout_below="@id/txtQName"
                         android:layout_toEndOf="@id/imgQ"
                         android:paddingStart="5sp"
-                        android:paddingLeft="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
@@ -327,7 +360,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtWLabel"
                         android:layout_toEndOf="@id/imgW"
-                        android:paddingLeft="5sp"
+                        android:paddingStart="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
@@ -338,7 +372,7 @@
                         android:layout_below="@id/txtWName"
                         android:layout_toEndOf="@id/imgW"
                         android:paddingStart="5sp"
-                        android:paddingLeft="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
@@ -371,7 +405,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtELabel"
                         android:layout_toEndOf="@id/imgE"
-                        android:paddingLeft="5sp"
+                        android:paddingStart="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
@@ -382,7 +417,7 @@
                         android:layout_below="@id/txtEName"
                         android:layout_toEndOf="@id/imgE"
                         android:paddingStart="5sp"
-                        android:paddingLeft="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
@@ -415,7 +450,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtRLabel"
                         android:layout_toEndOf="@id/imgR"
-                        android:paddingLeft="5sp"
+                        android:paddingStart="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
@@ -426,19 +462,12 @@
                         android:layout_below="@id/txtRName"
                         android:layout_toEndOf="@id/imgR"
                         android:paddingStart="5sp"
-                        android:paddingLeft="5sp"
+                        android:paddingEnd="5dp"
                         android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
                 </RelativeLayout>
-
-
-
             </LinearLayout>
-
-
         </RelativeLayout>
-
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
