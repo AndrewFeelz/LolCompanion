@@ -2,6 +2,8 @@ package com.feelydev.shroompoint.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Locale;
+
 public class Spell {
 
     @SerializedName("spellKey")

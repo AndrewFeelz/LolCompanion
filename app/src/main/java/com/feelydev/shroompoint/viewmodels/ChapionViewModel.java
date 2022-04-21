@@ -16,7 +16,7 @@ public class ChapionViewModel extends ViewModel {
 
     public ChapionViewModel() { repository = Repository.getInstance(); }
 
-    public LiveData<ChampionVerbose> getChampion(){
+    public ChampionVerbose getChampion(){
         return repository.getChampion();
     }
 

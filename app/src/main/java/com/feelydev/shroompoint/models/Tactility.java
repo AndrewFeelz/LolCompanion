@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName;
 public class Tactility {
 
     @SerializedName("style")
-    private int style;
+    private String style;
 
     @SerializedName("difficulty")
-    private int difficulty;
+    private String difficulty;
 
     @SerializedName("damageType")
     private String damageType;
@@ -16,17 +16,17 @@ public class Tactility {
     public Tactility() {
     }
 
-    public Tactility(int style, int difficulty, String damageType) {
+    public Tactility(String style, String difficulty, String damageType) {
         this.style = style;
         this.difficulty = difficulty;
         this.damageType = damageType;
     }
 
-    public int getStyle() {
+    public String getStyle() {
         return style;
     }
 
-    public int getDifficulty() {
+    public String getDifficulty() {
         return difficulty;
     }
 
