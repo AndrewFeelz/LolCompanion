@@ -24,9 +24,7 @@
                 android:layout_height="230dp"
                 android:background="#000000"
                 android:padding="2dp"
-                android:scaleType="fitXY"
-
-                app:srcCompat="@drawable/shyv" />
+                android:scaleType="fitXY"/>
 
             <TextView
                 android:id="@+id/txtChampName"
@@ -35,8 +33,7 @@
                 android:layout_below="@id/imgChampionSplash"
                 android:padding="5dp"
                 android:paddingStart="10dp"
-                android:paddingRight="10dp"
-                android:text="Shyvanna"
+                android:paddingEnd="10dp"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -47,7 +44,6 @@
                 android:layout_below="@id/txtChampName"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="the Half Dragon"
                 android:layout_marginBottom="10dp"
                 android:textAllCaps="true"
                 android:textSize="14sp"
@@ -73,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="Bio:"
+                    android:text="@string/bio"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -82,8 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@id/txtBioLabel"
-                    android:paddingHorizontal="20dp"
-                    android:text="Shyvana is a creature with the magic of a rune shard burning within her heart. Though she often appears humanoid, she can take her true form as a fearsome dragon, incinerating her foes with fiery breath. Having saved the life of the crown prince Jarvan IV, Shyvana now serves uneasily in his royal guard, struggling to find acceptance among the suspicious people of Demacia." />
+                    android:paddingHorizontal="20dp"/>
 
             </RelativeLayout>
 
@@ -100,7 +95,8 @@
                 android:layout_height="100dp"
                 android:layout_below="@id/bioArea"
                 android:layout_marginTop="10dp"
-                android:paddingStart="10dp">
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
 
 
                 <TextView
@@ -109,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_row="0"
                     android:layout_column="0"
-                    android:text="Stats:"
+                    android:text="@string/stats"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -120,15 +116,14 @@
                     android:layout_height="wrap_content"
                     android:layout_row="1"
                     android:layout_column="1"
-                    android:text="Difficulty: " />
+                    android:text="@string/difficulty" />
 
                 <TextView
                     android:id="@+id/txtDifficultyNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
-                    android:layout_column="2"
-                    android:text="#" />
+                    android:layout_column="2"/>
 
                 <TextView
                     android:id="@+id/txtDamageLabel"
@@ -136,15 +131,14 @@
                     android:layout_height="wrap_content"
                     android:layout_row="2"
                     android:layout_column="1"
-                    android:text="Damage: " />
+                    android:text="@string/damage" />
 
                 <TextView
                     android:id="@+id/txtDamageNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="2"
-                    android:layout_column="2"
-                    android:text="#" />
+                    android:layout_column="2"/>
 
                 <TextView
                     android:id="@+id/txtDurabilityLabel"
@@ -152,15 +146,14 @@
                     android:layout_height="wrap_content"
                     android:layout_row="3"
                     android:layout_column="1"
-                    android:text="Durability: " />
+                    android:text="@string/durability" />
 
                 <TextView
                     android:id="@+id/txtDurabilityNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="3"
-                    android:layout_column="2"
-                    android:text="#" />
+                    android:layout_column="2"/>
 
                 <TextView
                     android:layout_row="3"
@@ -173,15 +166,14 @@
                     android:layout_height="wrap_content"
                     android:layout_row="1"
                     android:layout_column="4"
-                    android:text="Crowd Control: " />
+                    android:text="@string/crowd_control" />
 
                 <TextView
                     android:id="@+id/txtCCNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
-                    android:layout_column="5"
-                    android:text="#" />
+                    android:layout_column="5"/>
 
                 <TextView
                     android:id="@+id/txtMobilityLabel"
@@ -189,15 +181,14 @@
                     android:layout_height="wrap_content"
                     android:layout_row="2"
                     android:layout_column="4"
-                    android:text="Mobility: " />
+                    android:text="@string/mobility" />
 
                 <TextView
                     android:id="@+id/txtMobilityNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="2"
-                    android:layout_column="5"
-                    android:text="#" />
+                    android:layout_column="5"/>
 
                 <TextView
                     android:id="@+id/txtUtilityLabel"
@@ -205,15 +196,14 @@
                     android:layout_height="wrap_content"
                     android:layout_row="3"
                     android:layout_column="4"
-                    android:text="Utility: " />
+                    android:text="@string/utility" />
 
                 <TextView
                     android:id="@+id/txtUtilityNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="3"
-                    android:layout_column="5"
-                    android:text="#" />
+                    android:layout_column="5"/>
 
             </GridLayout>
 
@@ -232,7 +222,7 @@
                 android:paddingStart="10sp"
                 android:paddingEnd="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Abilities (Passive, Q, W, E, R): "
+                android:text="@string/abilities_passive_q_w_e_r"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -254,15 +244,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Passive"
+                        android:text="@string/passive"
                         android:id="@+id/txtPassiveLabel"
                         android:textStyle="bold|italic"/>
                     <ImageView
                         android:id="@+id/imgPassive"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_below="@id/txtPassiveLabel"
-                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+                        android:layout_below="@id/txtPassiveLabel"/>
 
                     <TextView
                         android:id="@+id/txtPassiveName"
@@ -272,7 +261,6 @@
                         android:layout_toEndOf="@id/imgPassive"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
                     <TextView
@@ -283,7 +271,6 @@
                         android:layout_toEndOf="@id/imgPassive"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
                 </RelativeLayout>
@@ -299,15 +286,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Q"
+                        android:text="@string/q"
                         android:id="@+id/txtQLabel"
                         android:textStyle="bold|italic"/>
                     <ImageView
                         android:id="@+id/imgQ"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_below="@id/txtQLabel"
-                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+                        android:layout_below="@id/txtQLabel"/>
 
                     <TextView
                         android:id="@+id/txtQName"
@@ -317,7 +303,6 @@
                         android:layout_toEndOf="@id/imgQ"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
                     <TextView
@@ -328,7 +313,6 @@
                         android:layout_toEndOf="@id/imgQ"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
                 </RelativeLayout>
@@ -344,15 +328,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="W"
+                        android:text="@string/w"
                         android:id="@+id/txtWLabel"
                         android:textStyle="bold|italic"/>
                     <ImageView
                         android:id="@+id/imgW"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_below="@id/txtWLabel"
-                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+                        android:layout_below="@id/txtWLabel"/>
 
                     <TextView
                         android:id="@+id/txtWName"
@@ -362,7 +345,6 @@
                         android:layout_toEndOf="@id/imgW"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
                     <TextView
@@ -373,7 +355,6 @@
                         android:layout_toEndOf="@id/imgW"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
                 </RelativeLayout>
@@ -389,15 +370,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="E"
+                        android:text="@string/e"
                         android:id="@+id/txtELabel"
                         android:textStyle="bold|italic"/>
                     <ImageView
                         android:id="@+id/imgE"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_below="@id/txtELabel"
-                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+                        android:layout_below="@id/txtELabel"/>
 
                     <TextView
                         android:id="@+id/txtEName"
@@ -407,7 +387,6 @@
                         android:layout_toEndOf="@id/imgE"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
                     <TextView
@@ -418,7 +397,6 @@
                         android:layout_toEndOf="@id/imgE"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
                 </RelativeLayout>
@@ -434,15 +412,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="R"
+                        android:text="@string/r"
                         android:id="@+id/txtRLabel"
                         android:textStyle="bold|italic"/>
                     <ImageView
                         android:id="@+id/imgR"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_below="@id/txtRLabel"
-                        app:srcCompat="@drawable/shyvanareinforcedscales" />
+                        android:layout_below="@id/txtRLabel"/>
 
                     <TextView
                         android:id="@+id/txtRName"
@@ -452,7 +429,6 @@
                         android:layout_toEndOf="@id/imgR"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Fury of the Dragonborn"
                         android:textStyle="bold|italic" />
 
                     <TextView
@@ -463,7 +439,6 @@
                         android:layout_toEndOf="@id/imgR"
                         android:paddingStart="5sp"
                         android:paddingEnd="5dp"
-                        android:text="Shyvana deals bonus damage to dragons and gains Armor and Magic Resistance. As Shyvana and her allies slay more dragons, she gains more bonus Armor and Magic Resistance."
                         android:textSize="12sp" />
 
                 </RelativeLayout>

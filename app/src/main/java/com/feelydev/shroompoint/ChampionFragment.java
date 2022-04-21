@@ -18,8 +18,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.feelydev.shroompoint.adapters.ChampionListRecyclerView;
+import com.feelydev.shroompoint.adapters.ChampionVerboseRecyclerView;
 import com.feelydev.shroompoint.adapters.OnChampionListener;
 import com.feelydev.shroompoint.models.ChampionSimple;
+import com.feelydev.shroompoint.models.ChampionVerbose;
 import com.feelydev.shroompoint.utils.ScreenUtility;
 import com.feelydev.shroompoint.viewmodels.ChampionListViewModel;
 import com.feelydev.shroompoint.viewmodels.ChapionViewModel;
@@ -31,10 +33,13 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
     //RecyclerView
     private RecyclerView recyclerView;
     private ChampionListRecyclerView championListRecyclerView;
+    private ChampionVerboseRecyclerView championVerboseRecyclerView;
 
     //ViewModels
     private ChampionListViewModel championListViewModel;
     private ChapionViewModel chapionViewModel;
+
+    private ChampionVerbose championVerbose;
 
     //Empty Constructor
     public ChampionFragment() {}
@@ -44,6 +49,7 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_champion, container, false);
+        championVerbose = new ChampionVerbose();
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
 
@@ -86,16 +92,8 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
     public void onChampionClick(int position) {
 //            Toast.makeText(getContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
             String champID = championListRecyclerView.getSelectedChampionId(position);
-
-            Fragment fragment = new ChampionVerboseFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString("champID", champID);
-            fragment.setArguments(bundle);
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.championFragment, fragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-
+            Intent intent = new Intent(getContext(), ChampionVerboseFragment.class);
+            intent.putExtra("CHAMP_ID", champID);
+            startActivity(intent);
     }
 }
