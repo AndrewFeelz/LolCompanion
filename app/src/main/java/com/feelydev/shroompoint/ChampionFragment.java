@@ -86,16 +86,19 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
     public void onChampionClick(int position) {
 //            Toast.makeText(getContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
             String champID = championListRecyclerView.getSelectedChampionId(position);
-
-            Fragment fragment = new ChampionVerboseFragment();
             Bundle bundle = new Bundle();
             bundle.putString("champID", champID);
-            fragment.setArguments(bundle);
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.championFragment, fragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+            MainActivity.saveData(bundle);
+
+            Intent intent = new Intent(getActivity(), ChampionVerboseFragment.class);
+            startActivity(intent);
+
+//            Fragment fragment = new ChampionVerboseFragment();
+//            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.championFragment, fragment);
+//            fragmentTransaction.addToBackStack(null);
+//            fragmentTransaction.commit();
 
     }
 }

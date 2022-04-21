@@ -31,6 +31,7 @@ import java.util.List;
 public class MainActivity extends FragmentActivity {
 
     RecyclerView recyclerView;
+    static Bundle theBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,5 +75,13 @@ public class MainActivity extends FragmentActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
 
+    }
+
+    public static void saveData(Bundle data) {
+        theBundle = data;
+    }
+
+    public static Bundle getSavedData() {
+        return theBundle;
     }
 }

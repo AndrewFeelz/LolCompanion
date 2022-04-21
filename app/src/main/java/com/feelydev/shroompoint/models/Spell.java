@@ -2,6 +2,8 @@ package com.feelydev.shroompoint.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Locale;
+
 public class Spell {
 
     @SerializedName("spellKey")
@@ -47,6 +49,8 @@ public class Spell {
     }
 
     public String getThumbnailPath() {
+        thumbnailPath = thumbnailPath.substring(39);
+        thumbnailPath = thumbnailPath.toLowerCase();
         return thumbnailPath;
     }
 

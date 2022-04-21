@@ -40,7 +40,6 @@ public class ChampionListRecyclerView extends RecyclerView.Adapter<RecyclerView.
         Glide.with(holder.itemView.getContext())
                 .load(Credentials.BASE_URL + "champion-icons/" + championSimpleList.get(i).getId() + ".png")
                 .into((((ChampionListViewHolder)holder).championThumbnail));
-        
     }
 
     @Override

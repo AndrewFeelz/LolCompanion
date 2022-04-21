@@ -34,7 +34,7 @@ public class Repository {
 
 
     //Champ Verbose Data from APICLIENT
-    public LiveData<ChampionVerbose> getChampion(){return client.getChampion();}
+    public ChampionVerbose getChampion(){return client.getChampion();}
     public void getChampionAPI(String champId){
         client.getChampionAPI(champId);
     }

@@ -27,6 +27,8 @@ public class Passive {
     }
 
     public String getThumbnailPath() {
+        thumbnailPath = thumbnailPath.substring(39);
+        thumbnailPath = thumbnailPath.toLowerCase();
         return thumbnailPath;
     }
 

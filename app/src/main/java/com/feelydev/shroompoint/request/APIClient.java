@@ -24,7 +24,7 @@ import retrofit2.Response;
 public class APIClient {
 
     //LiveData
-    private MutableLiveData<ChampionVerbose> championVerbose;
+    private ChampionVerbose championVerbose;
     private MutableLiveData<List<ChampionSimple>> championList;
 
     private static APIClient instance;
@@ -43,12 +43,12 @@ public class APIClient {
     }
 
     private APIClient(){
-        championVerbose = new MutableLiveData<>();
+        championVerbose = new ChampionVerbose();
         championList = new MutableLiveData<>();
 
     }
 
-    public LiveData<ChampionVerbose> getChampion() {
+    public ChampionVerbose getChampion() {
         return championVerbose;
     }
     public LiveData<List<ChampionSimple>> getChampionList() {
@@ -97,16 +97,15 @@ public class APIClient {
                     return;
                 }
                 if (response.code() == 200){
-                    ChampionVerbose champion = response.body();
-                    championVerbose.postValue(champion);
+                    championVerbose = response.body();
                 }else{
                     Log.v("Tag", "Error in Response: " + response.errorBody().toString());
-                    championVerbose.postValue(null);
+                    championVerbose = null;
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
-                championVerbose.postValue(null);
+                championVerbose = null;
             }
 
         }
