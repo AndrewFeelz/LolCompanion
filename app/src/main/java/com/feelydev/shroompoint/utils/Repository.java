@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.feelydev.shroompoint.models.ChampionSimple;
 import com.feelydev.shroompoint.models.ChampionVerbose;
 import com.feelydev.shroompoint.request.APIClient;
+import com.feelydev.shroompoint.request.APIClient2;
 
 import java.util.List;
 
@@ -30,12 +31,5 @@ public class Repository {
     public LiveData<List<ChampionSimple>> getChampionList(){return client.getChampionList();}
     public void getChampionListAPI() {
        client.getChampionListAPI();
-    }
-
-
-    //Champ Verbose Data from APICLIENT
-    public ChampionVerbose getChampion(){return client.getChampion();}
-    public void getChampionAPI(String champId){
-        client.getChampionAPI(champId);
     }
 }

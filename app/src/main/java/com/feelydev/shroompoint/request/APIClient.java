@@ -24,13 +24,11 @@ import retrofit2.Response;
 public class APIClient {
 
     //LiveData
-    private ChampionVerbose championVerbose;
     private MutableLiveData<List<ChampionSimple>> championList;
 
     private static APIClient instance;
 
     //Global Request
-    private RetrieveChampionRunnable retrieveChampionRunnable;
     private RetrieveChampionListRunnable retrieveChampionListRunnable;
 
 
@@ -43,84 +41,13 @@ public class APIClient {
     }
 
     private APIClient(){
-        championVerbose = new ChampionVerbose();
         championList = new MutableLiveData<>();
 
     }
 
-    public ChampionVerbose getChampion() {
-        return championVerbose;
-    }
     public LiveData<List<ChampionSimple>> getChampionList() {
         return championList;
     }
-
-
-
-    //To be called to get a single champion
-    public void getChampionAPI(String champId){
-
-        if (retrieveChampionRunnable != null){
-            retrieveChampionRunnable = null;
-        }
-
-        retrieveChampionRunnable = new RetrieveChampionRunnable(champId);
-
-        final Future theHandler = APIExecutors.getInstance().getNetworkIO().submit(retrieveChampionRunnable);
-
-        APIExecutors.getInstance().getNetworkIO().schedule(new Runnable() {
-            @Override
-            public void run() {
-                //Cancellation of Request
-                theHandler.cancel(true);
-            }
-        }, 5000, TimeUnit.MILLISECONDS);
-    }
-
-    //Retrieve data from RestAPI by runnable class
-    private class RetrieveChampionRunnable implements Runnable{
-
-        private String champId;
-        boolean cancelRequest;
-
-        public RetrieveChampionRunnable(String champId) {
-            this.champId = champId;
-            cancelRequest = false;
-        }
-
-        @Override
-        public void run() {
-
-            try {
-                Response<ChampionVerbose> response = getChampion(champId).execute();
-                if (cancelRequest){
-                    return;
-                }
-                if (response.code() == 200){
-                    championVerbose = response.body();
-                }else{
-                    Log.v("Tag", "Error in Response: " + response.errorBody().toString());
-                    championVerbose = null;
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                championVerbose = null;
-            }
-
-        }
-
-        private Call<ChampionVerbose> getChampion(String champId){
-            return Service.getGameDB().getChampion(this.champId);
-        }
-
-        private void cancelRequest(){
-            Log.v("Tag", "Cancelling Search Request");
-            cancelRequest = true;
-        }
-    }
-
-
 
     public void getChampionListAPI( ){
 
@@ -138,11 +65,8 @@ public class APIClient {
                 //Cancellation of Request
                 theHandler.cancel(true);
             }
-        }, 5000, TimeUnit.MILLISECONDS);
+        }, 1000, TimeUnit.MILLISECONDS);
     }
-
-
-
 
     private class RetrieveChampionListRunnable implements Runnable{
 

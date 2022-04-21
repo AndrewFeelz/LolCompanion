@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.feelydev.shroompoint.models.ChampionSimple;
 import com.feelydev.shroompoint.models.ChampionVerbose;
+import com.feelydev.shroompoint.utils.Repo2;
 import com.feelydev.shroompoint.utils.Repository;
 
 import java.util.List;
@@ -12,11 +13,11 @@ import java.util.List;
 public class ChapionViewModel extends ViewModel {
 
     //repository Get
-    private Repository repository;
+    private Repo2 repository;
 
-    public ChapionViewModel() { repository = Repository.getInstance(); }
+    public ChapionViewModel() { repository = Repo2.getInstance(); }
 
-    public ChampionVerbose getChampion(){
+    public LiveData<ChampionVerbose> getChampion(){
         return repository.getChampion();
     }
 

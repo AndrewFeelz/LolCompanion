@@ -56,27 +56,13 @@ public class ChampionVerboseFragment extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.champion_verbose_fragment);
+        championVerbose = new ChampionVerbose();
         chapionViewModel = new ViewModelProvider(this).get(ChapionViewModel.class);
-        ObserveChangesToChamp();
-        String champID = getIntent().getStringExtra("CHAMP_ID");
-        getChampionAPI(champID);
+        championVerbose = getIntent().getParcelableExtra("CHAMP_ID");
         initializeViews();
         SetChampion();
         hideSystemBars();
 
-    }
-
-    private void getChampionAPI(String champID){chapionViewModel.getChampionAPI(champID);}
-
-    private void ObserveChangesToChamp(){
-        chapionViewModel.getChampion().observeForever(new Observer<ChampionVerbose>() {
-            @Override
-            public void onChanged(ChampionVerbose championVerbose) {
-                if(championVerbose != null){
-                    setChamp(championVerbose);
-                }
-            }
-        });
     }
 
     private void initializeViews(){

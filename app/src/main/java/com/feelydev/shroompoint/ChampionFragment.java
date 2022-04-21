@@ -39,7 +39,7 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
     private ChampionListViewModel championListViewModel;
     private ChapionViewModel chapionViewModel;
 
-    private ChampionVerbose championVerbose;
+    private ChampionVerbose championV;
 
     //Empty Constructor
     public ChampionFragment() {}
@@ -49,13 +49,15 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_champion, container, false);
-        championVerbose = new ChampionVerbose();
+        championV = new ChampionVerbose();
+        chapionViewModel = new ChapionViewModel();
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
 
         championListViewModel = new ViewModelProvider(this).get(ChampionListViewModel.class);
 
         ObserveChangesToList();
+        ObeserveChampChanges();
         ConfigureRecyclerView();
         getChampionListAPI();
 
@@ -79,6 +81,21 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
         });
     }
 
+    private void getChampionAPI(String champID){chapionViewModel.getChampionAPI(champID);}
+
+    private void ObeserveChampChanges(){
+        chapionViewModel.getChampion().observeForever(new Observer<ChampionVerbose>() {
+            @Override
+            public void onChanged(ChampionVerbose championVerbose) {
+                if (championVerbose != null){
+                    Log.v("Taggy", championVerbose.getName());
+                    championV = championVerbose;
+                }
+            }
+        });
+    }
+
+
     //RecyclerView
     private void ConfigureRecyclerView() {
         championListRecyclerView = new ChampionListRecyclerView(this);
@@ -92,8 +109,9 @@ public class ChampionFragment extends Fragment implements OnChampionListener {
     public void onChampionClick(int position) {
 //            Toast.makeText(getContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
             String champID = championListRecyclerView.getSelectedChampionId(position);
+            getChampionAPI(champID);
             Intent intent = new Intent(getContext(), ChampionVerboseFragment.class);
-            intent.putExtra("CHAMP_ID", champID);
+            intent.putExtra("CHAMP_ID", championV);
             startActivity(intent);
     }
 }
